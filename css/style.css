@@ -1,0 +1,172 @@
+/*google font*/
+@import url('https://fonts.googleapis.com/css?family=Poppins:400,700,800,900&display=swap');
+
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: 'Oswald', sans-serif;
+}
+body
+{
+	background-color: #202020;
+	font-weight: 400;
+	font-size: 20px;
+	text-transform: uppercase;
+	
+}
+
+
+.navbar ul.navbar-nav  li.active,
+.navbar ul.navbar-nav  li:hover{
+	background:rgba(255, 255, 255, 0.5);
+	color: #cc1313 !important;
+
+}
+.navbar ul.navbar-nav  li a{
+	color: black!important;
+	font-size: 20px;
+}
+.navbar ul.navbar-nav  li.active a,
+.navbar ul.navbar-nav li:hover a{
+	color: #cc1313 !important;
+}
+/*slider*/
+.content
+{
+	background:	linear-gradient(to right,rgb(0,0,0,0.6),rgb(0,0,0,0.6));
+}
+#carouselExampleIndicators{
+	height: 93vh;
+	width: 100%;
+	background-attachment: fixed;
+	background-position: center;
+}
+#carouselExampleIndicators .carousel-inner{
+	height: 100%;
+	width: 100%;
+	background: #000;
+}
+#carouselExampleIndicators .carousel-inner:before{
+	position: absolute;
+	content: '';
+	
+	top: 0;
+	left: 0;
+	height: 100%;
+	width: 100%;
+	z-index: 1;
+}
+#carouselExampleIndicators .carousel-inner .carousel-item{
+	height: 100%;
+	width:100%;
+	background: url(/images/482216347x.jpg) ;
+	background-size: cover;
+	background-position: center;
+	background-attachment: fixed;
+}
+#carouselExampleIndicators .carousel-inner .carousel-item:nth-child(2){
+	background: url(/images/2.jpg) ;
+	background-size: cover;
+	background-position: center;
+	background-attachment: fixed;
+}
+#carouselExampleIndicators .carousel-inner .carousel-item:nth-child(3){
+	background: url(/images/5.jpg) ;
+	background-size: cover;
+	background-position: center;
+	background-attachment: fixed;
+}
+#carouselExampleIndicators .carousel-inner .carousel-item:nth-child(4){
+	background: url(/images/4.jpeg) ;
+	background-size: cover;
+	background-position: center;
+	background-attachment: fixed;
+}
+
+#carouselExampleIndicators .carousel-inner .carousel-item .info{
+	position: absolute;
+	top: 0;
+	transform: translateY(-50%);
+	height: auto;
+	width: 100%;
+	z-index: 1;
+	text-align:left;
+}
+#carouselExampleIndicators .carousel-inner .carousel-item h1{
+	width: 100%;
+	z-index: 1;
+	text-align:left;
+	font-size: 5.5em;
+	font-weight: 750;
+}
+#carouselExampleIndicators .carousel-inner .carousel-item p{
+	width: 100%;
+	z-index: 1;
+	text-align:left;
+	font-size: 1.2em;
+	font-weight: 500;
+}
+
+/*body content*/
+.card:hover
+{
+opacity: 0.6;
+}
+.card
+{
+	border: #000;
+}
+.card p{
+	padding-top: 0;
+	padding-bottom: 0;
+}
+.card .card-body
+{
+	height: 5% !important;
+	background-color: #cc1313;
+}
+.links .card{
+	height: 220px;
+}
+.category .card{
+	height: 220px;
+}
+.links img,.category img{
+	height: 150px;
+}
+
+.category h1,.links h1
+{
+	font-size: 3.5em;
+
+}
+.category h5,.links h5
+{
+	font-size: 2em;
+}
+
+
+.youtube
+{
+	background-image: url("/images/4.png") ;
+	background-size: cover;
+	background-attachment: fixed;
+	background-position: center;
+	background-repeat: no-repeat;
+}
+.about
+{
+	background-image: url("/images/Alka-Yagnik.jpg") ;
+	background-size: cover;
+	background-attachment: fixed;
+	background-position: center;
+	background-repeat: no-repeat;
+}
+
+
+/*radio*/
+
+
+
+/*end radio*/
