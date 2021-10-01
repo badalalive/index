@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8"/>
+	<title>bootstrap 4 landing page with slider</title>
+	<!-- bootstrap cdn -->
+	<link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"/>
+	<!-- font awesome cdn -->
+	<link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"/>
+	<!-- style.css -->
+	<link rel="stylesheet" type="text/css" href="/css/style.css"/>
+	<link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+  />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;700&display=swap" rel="stylesheet">
+	<!-- jquery cdn -->
+	<script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.js"></script>
+</head>
+<body>
+
+			<!-- slider banner	 -->
+          <section class="banner">
+			<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+			  <ol class="carousel-indicators">
+			    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+			    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+			    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+				<li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
+			  </ol>
+			  <div class="carousel-inner">
+			    <div class="carousel-item active">
+			    	<div class="info animate__animated  animate__bounceInUp wow">
+			      	</div>
+			    </div>
+			    <div class="carousel-item">
+			    	<div class="info animate__animated  animate__bounceInUp  wow">
+			      	</div>
+			    </div>
+				<div class="carousel-item">
+			    	<div class="info animate__animated  animate__bounceInUp  wow">
+			      	</div>
+			    </div>
+				<div class="carousel-item">
+			    	<div class="info animate__animated  animate__bounceInUp  wow">
+			      	</div>
+			    </div>
+			</div>
+		</div>
+		<div class="container-fluid" style="position: absolute;top:0;background-color: transparent;">
+			<div class="row" >
+				<div class="col-xl-6" style="background:linear-gradient(to right,rgb(0,0,0,0.7),rgb(0,0,0,0.7));height:568px;" >
+					<img src="/images/newlogo.png" class="px-2 animate__animated  animate__bounceInUp  wow" width=150 heigth=50 alt="">
+					<h1 class="text-white   px-2 animate__animated  animate__bounceInUp  wow" style="font-size: 80px;">ApnaNews Fm</h1>
+					<h1 class=" px-2 animate__animated  animate__bounceInUp  wow" style="font-size: 70px;color: #cc1313;">Online Radio</h1>    
+					<button class="btn px-2 animate__animated  animate__bounceInUp  wow" style="background-color: #cc1313;">                         
+						<a  style="color: white;font-size: 15px;"id="login-button"  href="/login-user" role="button">
+						<img width="20px"  alt="Google sign-in" src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Google_%22G%22_Logo.svg/512px-Google_%22G%22_Logo.svg.png" />
+						Login with Google
+						</a>
+					</button>
+					<button class="btn animate__animated  animate__bounceInUp  wow" ><a  style="color: white;background-color: #cc1313;font-size: 15px;border-radius: 2px;" th:if="${check=='ok'}" class="nav-link" href="/playlist">Favorite songs</a></button>
+					
+			
+				</div>
+			</div>
+			</div>
+	</section>
+<div class="container-fluid text-white py-1" style="background-color: rgb(59,60,54);">
+		<audio  id="musicplayer" style="width: 100%;  background-color:transparent;outline:none; height:40px;" autoplay controls  controlsList="nodownload">
+		  <source src="mp3/1.mp3" type="audio/mp3">
+		</audio>
+		  <button onclick="prev()" id="button" title="previous track"  class="btn btn-danger"><img src="images/btn-prev.png"></button>
+		  <button onclick="next()"  id="button1" title="next track"class="btn btn-danger"><img src="images/btn-next.png"></button>
+ 
+<a  th:if="${check=='ok'}"onclick="redirectTo();"><button class="px-2" style="background-color:black;border:2px solid red;color: white;font-size: 15px;">Add  Favorites</button></a>
+<a  th:if="${delete=='ok'}"onclick="redirectToDelete();"><button class="px-2" id="delete" style="background-color:black;border:2px solid red;color: white;font-size: 15px;">Remove  Favorites</button></a>
+
+	<select style="font-size:16px;" class="state  animate__animated  animate__bounceInUp  wow" id="select1" onchange="change(this);" >
+		<option value="" >Select State</option>
+		 <option th:each="state : ${state}" th:value="${state}" th:utext="${state}"/>
+		 </select>
+		
+		 <select style="font-size:16px;" class="state  animate__animated  animate__bounceInUp  wow" id="myselect1" onchange="adchange(this);" >
+		  <option value="" >Select Location</option>
+		 </select>
+		
+			 
+</div>
+</div>
+
+	<nav class="navbar navbar-expand-lg navbar-light" style="background-color: white;">
+		<a class="navbar-brand" href="#"><img src="/images/newlogo.png" width=150 height=100 alt=""></a>
+		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+		  <span class="navbar-toggler-icon"></span>
+		</button>
+		<div class="collapse navbar-collapse" id="navbarNav">
+		  <ul class="navbar-nav ml-auto">
+			<li class="nav-item"><a class="nav-link" href="/">HOME</a></li>
+                                    <li class="nav-item"><a class="nav-link" href="/jobs" target="_blank">Govt. Job's</a></li>
+                                     <li class="nav-item"><a class="nav-link" href="/viral-news" target="_blank">Viral Video</a></li>
+                                     <li class="nav-item"><a class="nav-link" href="/career-guidance" target="_blank">Entertainment</a></li>
+                                   <li class="nav-item"><a class="nav-link" href="/religion" target="_blank">Religion/Astrology</a></li>
+                                   <li class="nav-item"><a class="nav-link" href="/health" target="_blank">Health</a></li>
+                                   <li class="nav-item"><a class="nav-link" href="/aggriculture" target="_blank">Agriculture</a></li>
+		  </ul>
+		</div>
+	  </nav>
+
+	 <!--music player-->
+	 <section class="category">
+		<div class="container-fluid py-5 text-center">
+		<h1 class="text-left text-white animate__animated  animate__bounceInLeft  wow">Song Categories </h1> 
+		<h5 class="text-left  animate__animated  animate__bounceInLeft  wow" style="color:#cc1313;">Enjoy Music</h5> 
+		
+		  <div class="card-group py-5 text-white">
+			<div class="card  mx-2 ">
+			  <img class="card-img-top" src="/images/trendy.jpg" alt="Card image cap">
+			  <div class="card-body">
+				<p class="card-title animate__animated  animate__fadeIn  wow">Trending Songs</p>
+				 </div>
+			</div>
+			<div class="card mx-2" >
+			  <img class="card-img-top" src="/images/romantic.jpg" alt="Card image cap">
+			  <div class="card-body">
+				<p class="card-title animate__animated  animate__fadeIn  wow">Romantic Songs</p>
+				</div>
+			</div>
+			<div class="card mx-2">
+			  <img class="card-img-top" src="/images/party.jpg" alt="Card image cap">
+			  <div class="card-body">
+				<p class="card-title animate__animated  animate__fadeIn  wow">Party Songs</p>
+				 </div>
+				</div>
+			<div class="card mx-2">
+			  <img class="card-img-top" src="/images/old.jpg" alt="Card image cap">
+			  <div class="card-body">
+				<p class="card-title animate__animated  animate__fadeIn  wow">Old Memories</p>
+				</div>
+			  </div>
+			<div class="card mx-2">
+			  <img class="card-img-top" src="/images/lord.jpg" alt="Card image cap">
+			  <div class="card-body">
+				<p class="card-title animate__animated  animate__fadeIn  wow">Devotional Songs</p>
+			   </div>
+			</div>
+			<div class="card mx-2">
+			  <img class="card-img-top" src="/images/story.jpg" alt="Card image cap">
+			  <div class="card-body">
+				<p class="card-title animate__animated  animate__fadeIn  wow">Stories</p>
+			  </div>
+			</div>
+			</div>
+		  </div>
+		  <div class="youtube">
+			<div class="container justify-content-center" style="height: 500px;">
+           <h1 class="text-white text-center pt-5" style="font-size: 50px;">apnanewsfm Music</h1>
+		   <h3 class="text-center text-white pt-3" style="font-size: 50px;">"like" if you love them</h3>
+		   <div class="text-center pt-3" "><img src="/images/subscribe.png" style="width:350px !important; height:80px !important;"    alt="subscribe now"></div>
+			</div>
+			</div>
+	  </section>
+	  <section class="links">
+		<div class="conatain-fluid text-center py-5">
+			 <h1 class="text-left text-white animate__animated  animate__bounceInLeft  wow">Popular Links</h1> 
+			<h5 class="text-left  animate__animated  animate__bounceInLeft  wow" style="color:#cc1313;">Take a Tour</h5> 
+	
+		<div class="card-group py-5 text-white">
+			<div class="card mx-3">
+			  <a href=""><img class="card-img-top" src="/images/viral.jpg" alt="Card image cap"></a>
+			  <div class="card-body">
+				<p class="card-title animate__animated animate__fadeInUp wow">VIRAL VIDEO</p>
+			  </div>
+			</div>
+			<div class="card  mx-3">
+			  <a href="#"><img class="card-img-top" src="/images/government.jpg" alt="Card image cap"></a>
+			  <div class="card-body">
+				<p class="card-title animate__animated animate__fadeInUp wow">GOV.JOB'S</p>
+			  </div>
+			</div>
+			<div class="card  mx-3">
+			  <a href="#"><img class="card-img-top" src="/images/entertainment.jpg" alt="Card image cap"></a>
+			  <div class="card-body">
+				<p class="card-title animate__animated animate__fadeInUp wow">ENTERTAINMENT</p>	
+			</div>
+			</div>
+			<div class="card  mx-3">
+				<a href="#"><img class="card-img-top" src="/images/religion.jpg" alt="Card image cap"></a>
+				<div class="card-body">
+				  <p class="card-title animate__animated animate__fadeInUp wow">RELIGION</p>
+					</div>
+			  </div>
+			  <div class="card  mx-3">
+				<a href="#"><img class="card-img-top" src="/images/health.jpg" alt="Card image cap"></a>
+				<div class="card-body">
+				  <p class="card-title animate__animated animate__fadeInUp wow">HEALTH</p>
+				 	</div>
+			  </div>
+			  <div class="card  mx-3">
+			<a href="#">	<img class="card-img-top" src="/images/agriculture.jpg" alt="Card image cap"></a>
+				<div class="card-body">
+				  <p class="card-title animate__animated animate__fadeInUp wow">AGRICULTURE</p>
+				  	</div>
+			  </div>
+		  </div>
+		</div>
+	  </section>
+	  <div class="about">
+		<div class="container justify-content-center" style="height: 500px;">
+			<strong><h5 class="pt-5 text-center " style="color:#cc1313;font-size: 50px;font-weight: 700;">About us</h5></strong>
+	   <h3 class="text-center text-white" ><i style="color: #cc1313;" class="fa fa-quote-left" aria-hidden="true"></i>&nbsp;In Apna news FM we try to aware and inform the visitors by news along with music playing side by side. By keeping in mind the needs of youth and other age groups, we have created different pages for GOVT. Jobs, Viral videos, Career guidance, Religion/astrology, Health and Agriculture.&nbsp;<i class="fa fa-quote-right" style="color: #cc1313;" aria-hidden="true"></i></h3>
+		</div>
+		</div>
+	  <section class="radio py-5">
+		<div class="container-fluid">
+			<h1 class="text-left text-white animate__animated  animate__bounceInLeft  wow">Online Popular Radios</h1>
+			<p class="text-left   animate__animated  animate__bounceInLeft  wow" style="color: #cc1313;">India's rich musical heritage has a lot to offer to modern world. India is united by Music in many languages.
+				Here are internet radio stations of Main indian languages.:</p>
+				 <p class="text-white"style="font-size:18px; margin-right:15px;">Select Radio State:&nbsp;
+<select class="state" id="myselect" onchange="radio(this);" >
+<option value="" >select</option>
+<option th:each="radios : ${radio}" th:value="${radios.state}" th:utext="${radios.state}"/>
+</select>
+</p>
+			</div>
+			<div class="container-fluid text-white text-center py-3">
+			<div class="row py-5  border-bottom border-white" style="color: #cc1313;">
+				<div class="col-3">
+				 Radio Station	
+				</div>
+				<div class="col-3">
+					Name	
+				   </div>
+				   <div class="col-3">
+					city	
+				   </div>
+				   <div class="col-3">
+					Play
+				   </div>
+			</div>
+			<div class="row py-2 border-bottom border-white">
+				<div class="col-3">
+					<img src="radio/RadioMirchi98.3FM.jpg" height="90px" width="90px" id="img">	
+				</div>
+				<div class="col-3">
+					Radio Mirchi	
+				   </div>
+				   <div class="col-3">
+					National	
+				   </div>
+				   <div class="col-3">
+					
+				   </div>
+			</div>
+			<div class="row py-2  border-bottom border-white">
+				<div class="col-3">
+					<img src="radio/Radiocity.png" height="90px" width="90px">		
+				</div>
+				<div class="col-3">
+					Radio City	
+				   </div>
+				   <div class="col-3">
+					national	
+				   </div>
+				   <div class="col-3">
+			
+				   </div>
+			</div>
+			<div class="row py-2  border-bottom border-white">
+				<div class="col-3">
+					<img src="radio/radiofm.png" height="90px" width="90px">	
+				</div>
+				<div class="col-3">
+					Big  Fm	
+				   </div>
+				   <div class="col-3">
+					national	
+				   </div>
+				   <div class="col-3">
+				   </div>
+			</div>
+			<div class="row py-2  border-bottom border-white">
+				<div class="col-3">
+					<img src="radio/hungama.jpg" height="90px" width="90px">		
+				</div>
+				<div class="col-3">
+					Radio Hungama 
+				   </div>
+				   <div class="col-3">
+					national	
+				   </div>
+				   <div class="col-3">
+					
+				   </div>
+			</div>	
+		</div>
+	  </section>
+	<footer class="footer  text-secondary text-center  border-top border-secondary mt-5" >
+		<span class="" style="color: #cc1313;">Disclaimer</span><p class="text-white justify-content-center" style="font-size: 15px;">Videos, news and other content available on website are curated by keeping in mind the likes and dislikes of viewers. Apna news FM does not agree or disagree on any content on website. Viewers and readers are advised to use their wisdom because we are not connected or in relation with content, that is any objection or matter are not acceptable and liable. In any case of dispute Apna news FM's decision will be Final and acceptable All legal action matters will be only acceptable in Bhopal court.</p>
+    <img class="py-3" src="/images/newlogo.png" width=150 height=150 alt="logo">
+	<br>
+	<a class="font-weight-bold text-white" href="#"><i class="fa fa-facebook-official" style="font-size: 35px;" aria-hidden="true"></i></a>&nbsp;
+	<a class="font-weight-bold text-white" href="#"><i class="fa fa-youtube-play" style="font-size: 35px;" aria-hidden="true"></i></a>&nbsp;
+	<a class="font-weight-bold text-white" href="#"><i class="fa fa-instagram" style="font-size: 35px;" aria-hidden="true"></i></a>&nbsp;
+	<br><br> 
+	<p>Copyright © 2021 Apnanewsfm.com</p>
+	 <p>Mail Id:apnanewsfm@gmail.com</p>
+	</footer>
+	
+	<!-- scripts -->
+	<!-- bootstrap javascript cdn -->
+	<script type="text/javascript" src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+	<script src="/js/wow.min.js"></script>
+	<script>
+	new WOW().init();
+	</script>
+</body>
+</html>
